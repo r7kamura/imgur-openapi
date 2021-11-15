@@ -1,0 +1,20 @@
+name: tag
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - schema.oas.yml
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+      - uses: salsify/action-detect-and-tag-new-version@v2
+        with:
+          version-command: |-
+            grep -E "^  version: .+$" schema.oas.yml | sed -r "s/  version: //"
