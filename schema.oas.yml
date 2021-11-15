@@ -1,16 +1,21 @@
 openapi: 3.0.0
 servers:
-  - url: https://api.imgur.com/
+  - url: https://api.imgur.com
 info:
   title: Imgur API
   description: >-
     Imgur's API exposes the entire Imgur infrastructure via a standardized programmatic interface.
     Using Imgur's API, you can do just about anything you can do on imgur.com, while using your programming language of choice.
   version: 0.1.0
+tags:
+  - name: image
+    description: Account-agnostic image endpoints.
 paths:
   /3/image/{image_hash}:
     get:
-      summary: Get information about an image.
+      tags:
+        - image
+      description: Get information about an image.
       operationId: get_image
       parameters:
         - name: image_hash
