@@ -33,6 +33,8 @@ paths:
                   type: string
                 grant_type:
                   type: string
+                  enum:
+                    - refresh_token
                 refresh_token:
                   type: string
               required:
