@@ -9,7 +9,7 @@ info:
   version: 0.1.0
 tags:
   - name: image
-    description: Account-agnostic image endpoints.
+    description: Account-agnostic endpoints about image.
 paths:
   /3/image/{imageHash}:
     get:
@@ -40,6 +40,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BasicBooleanResponse'
+  /3/image/{imageHash}/favorite:
+    post:
+      tags:
+        - image
+      description: Favorite an image.
+      operationId: favoriteImage
+      parameters:
+        - $ref: '#/components/parameters/imageHash'
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicStringResponse'
 components:
   parameters:
     imageHash:
@@ -155,6 +170,20 @@ components:
       properties:
         data:
           type: boolean
+        status:
+          type: integer
+          format: int32
+        success:
+          type: boolean
+    BasicStringResponse:
+      type: object
+      required:
+        - data
+        - status
+        - success
+      properties:
+        data:
+          type: string
         status:
           type: integer
           format: int32
