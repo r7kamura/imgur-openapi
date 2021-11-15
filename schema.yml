@@ -105,7 +105,7 @@ components:
           format: int32
     ImageResponse:
       type: object
-      requires:
+      required:
         - data
         - status
         - success
