@@ -1,6 +1,9 @@
 openapi: 3.0.0
 servers:
   - url: https://api.imgur.com/
+info:
+  title: Imgur API
+  version: 0.1.0
 paths:
   /3/image/{image_hash}:
     get:
