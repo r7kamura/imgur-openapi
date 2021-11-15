@@ -12,9 +12,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: Legion2/swagger-ui-action@v1
         with:
-          output: swagger-ui
+          output: public
           spec-file: schema.oas.yml
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: swagger-ui
