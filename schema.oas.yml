@@ -11,18 +11,14 @@ tags:
   - name: image
     description: Account-agnostic image endpoints.
 paths:
-  /3/image/{image_hash}:
+  /3/image/{imageHash}:
     get:
       tags:
         - image
       description: Get information about an image.
-      operationId: get_image
+      operationId: getImage
       parameters:
-        - name: image_hash
-          in: path
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/imageHash'
       responses:
         '200':
           description: Successful operation.
@@ -30,7 +26,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ImageResponse'
+    delete:
+      tags:
+        - image
+      description: Delete an image.
+      operationId: deleteImage
+      parameters:
+        - $ref: '#/components/parameters/imageHash'
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicBooleanResponse'
 components:
+  parameters:
+    imageHash:
+      name: imageHash
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
     Image:
       type: object
@@ -124,6 +141,20 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/Image'
+        status:
+          type: integer
+          format: int32
+        success:
+          type: boolean
+    BasicBooleanResponse:
+      type: object
+      required:
+        - data
+        - status
+        - success
+      properties:
+        data:
+          type: boolean
         status:
           type: integer
           format: int32
