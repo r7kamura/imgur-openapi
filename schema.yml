@@ -3,6 +3,9 @@ servers:
   - url: https://api.imgur.com/
 info:
   title: Imgur API
+  description: >-
+    Imgur's API exposes the entire Imgur infrastructure via a standardized programmatic interface.
+    Using Imgur's API, you can do just about anything you can do on imgur.com, while using your programming language of choice.
   version: 0.1.0
 paths:
   /3/image/{image_hash}:
