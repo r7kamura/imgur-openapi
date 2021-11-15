@@ -17,4 +17,4 @@ jobs:
       - uses: salsify/action-detect-and-tag-new-version@v2
         with:
           version-command: |-
-            grep -E "^  version: .+$" schema.oas.yml | sed -r "s/  version: //"
+            ruby -r yaml -e "puts YAML.load_file('schema.oas.yml').dig('info', 'version')"
