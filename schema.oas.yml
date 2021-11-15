@@ -6,7 +6,7 @@ info:
   description: >-
     Imgur's API exposes the entire Imgur infrastructure via a standardized programmatic interface.
     Using Imgur's API, you can do just about anything you can do on imgur.com, while using your programming language of choice.
-  version: 0.1.0
+  version: 0.1.1
 tags:
   - name: account
     description: Account-dependent endpoints.
