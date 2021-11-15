@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Changed
+
+- Only allow 1 value as grant_type: refresh_token.
+
 ## 0.1.0
 
 ### Added
