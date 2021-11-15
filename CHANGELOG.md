@@ -1,0 +1,11 @@
+# Changelog
+
+## Unreleased
+
+### Added
+
+- Initial release.
+- Add a new endpoint: get_image.
+- Add a new endpoint: delete_image.
+- Add a new endpoint: favorite_image.
+
