@@ -1,0 +1,116 @@
+openapi: 3.0.0
+servers:
+  - url: https://api.imgur.com/
+paths:
+  /3/image/{imageHash}:
+    get:
+      summary: Get information about an image.
+      operationId: getImage
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageResponse'
+components:
+  schemas:
+    Image:
+      type: object
+      required:
+        - ad_type
+        - ad_url
+        - animated
+        - bandwidth
+        - datetime
+        - favorite
+        - height
+        - id
+        - in_gallery
+        - in_most_viral
+        - is_ad
+        - link
+        - size
+        - tags
+        - type
+        - views
+        - width
+      properties:
+        account_id:
+          type: integer
+          format: int32
+        account_url:
+          type: string
+        ad_type:
+          type: integer
+          format: int32
+        ad_url:
+          type: string
+        animated:
+          type: boolean
+        bandwidth:
+          type: integer
+          format: int32
+        deletehash:
+          type: string
+        datetime:
+          type: integer
+          format: int32
+        description:
+          type: string
+        favorite:
+          type: boolean
+        height:
+          type: integer
+          format: int32
+        id:
+          type: string
+        in_gallery:
+          type: boolean
+        in_most_viral:
+          type: boolean
+        is_ad:
+          type: boolean
+        link:
+          type: string
+        name:
+          type: string
+        nsfw:
+          type: boolean
+        section:
+          type: string
+        size:
+          type: integer
+          format: int32
+        tags:
+          type: array
+          items:
+            type: string
+        title:
+          type: string
+        type:
+          type: string
+        views:
+          type: integer
+          format: int32
+        vote:
+          type: string
+        width:
+          type: integer
+          format: int32
+    ImageResponse:
+      type: object
+      requires:
+        - data
+        - status
+        - success
+      properties:
+        data:
+          $ref: '#/components/schemas/Image'
+        status:
+          type: integer
+          format: int32
+        success:
+          type: boolean
+externalDocs:
+  description: Find out more about Imgur API.
+  url: https://apidocs.imgur.com/
