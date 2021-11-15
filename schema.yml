@@ -17,7 +17,7 @@ paths:
             type: string
       responses:
         '200':
-          description: successful operation
+          description: Successful operation.
           content:
             application/json:
               schema:
