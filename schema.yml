@@ -2,10 +2,16 @@ openapi: 3.0.0
 servers:
   - url: https://api.imgur.com/
 paths:
-  /3/image/{imageHash}:
+  /3/image/{image_hash}:
     get:
       summary: Get information about an image.
-      operationId: getImage
+      operationId: get_image
+      parameters:
+        - name: image_hash
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           content:
