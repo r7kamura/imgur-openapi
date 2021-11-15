@@ -62,6 +62,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AccountResponse'
+  /3/account/{userName}/images:
+    get:
+      tags:
+        - account
+      description: Get images of an account.
+      operationId: getAccountImages
+      parameters:
+        - $ref: '#/components/parameters/userName'
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountImagesResponse'
   /3/image/{imageHash}:
     get:
       tags:
@@ -193,6 +208,22 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/Account'
+        status:
+          type: integer
+          format: int32
+        success:
+          type: boolean
+    AccountImagesResponse:
+      type: object
+      required:
+        - data
+        - status
+        - success
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Image'
         status:
           type: integer
           format: int32
