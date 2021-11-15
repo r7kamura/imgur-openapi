@@ -8,4 +8,5 @@
 - Add a new endpoint: get_image.
 - Add a new endpoint: delete_image.
 - Add a new endpoint: favorite_image.
+- Add a new endpoint: generate_access_token.
 
