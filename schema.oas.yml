@@ -8,6 +8,8 @@ info:
     Using Imgur's API, you can do just about anything you can do on imgur.com, while using your programming language of choice.
   version: 0.1.0
 tags:
+  - name: account
+    description: Account-dependent endpoints.
   - name: auth
     description: Authentication and authorization.
   - name: image
@@ -45,6 +47,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AccessToken'
+  /3/account/{userName}:
+    get:
+      tags:
+        - account
+      description: Get information about an account.
+      operationId: getAcconut
+      parameters:
+        - $ref: '#/components/parameters/userName'
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountResponse'
   /3/image/{imageHash}:
     get:
       tags:
@@ -97,6 +114,12 @@ components:
       required: true
       schema:
         type: string
+    userName:
+      name: userName
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
     AccessToken:
       type: object
@@ -124,6 +147,57 @@ components:
           type: string
         token_type:
           type: string
+    Account:
+      type: object
+      required:
+        - created
+        - id
+        - pro_expiration
+        - reputation_name
+        - reputation
+        - url
+        - user_follow
+      properties:
+        avatar:
+          type: string
+        bio:
+          type: string
+        created:
+          type: integer
+          format: int32
+        id:
+          type: integer
+          format: int32
+        pro_expiration:
+          type: boolean
+        reputation_name:
+          type: string
+        reputation:
+          type: integer
+          format: int32
+        url:
+          type: string
+        user_follow:
+          type: object
+          required:
+            - status
+          properties:
+            status:
+              type: boolean
+    AccountResponse:
+      type: object
+      required:
+        - data
+        - status
+        - success
+      properties:
+        data:
+          $ref: '#/components/schemas/Account'
+        status:
+          type: integer
+          format: int32
+        success:
+          type: boolean
     BasicBooleanResponse:
       type: object
       required:
