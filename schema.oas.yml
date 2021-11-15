@@ -8,9 +8,43 @@ info:
     Using Imgur's API, you can do just about anything you can do on imgur.com, while using your programming language of choice.
   version: 0.1.0
 tags:
+  - name: auth
+    description: Authentication and authorization.
   - name: image
     description: Account-agnostic endpoints about image.
 paths:
+  /oauth/token:
+    post:
+      tags:
+        - auth
+      description: Generate a new access token from given refresh token.
+      operationId: generate_access_token
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+                grant_type:
+                  type: string
+                refresh_token:
+                  type: string
+              required:
+                - client_id
+                - client_secret
+                - grant_type
+                - refresh_token
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessToken'
   /3/image/{imageHash}:
     get:
       tags:
@@ -64,6 +98,60 @@ components:
       schema:
         type: string
   schemas:
+    AccessToken:
+      type: object
+      required:
+        - access_token
+        - account_id
+        - account_username
+        - expires_in
+        - refresh_token
+        - token_type
+      properties:
+        access_token:
+          type: string
+        account_id:
+          type: integer
+          format: int32
+        account_username:
+          type: string
+        expires_in:
+          type: integer
+          format: int32
+        refresh_token:
+          type: string
+        scope:
+          type: string
+        token_type:
+          type: string
+    BasicBooleanResponse:
+      type: object
+      required:
+        - data
+        - status
+        - success
+      properties:
+        data:
+          type: boolean
+        status:
+          type: integer
+          format: int32
+        success:
+          type: boolean
+    BasicStringResponse:
+      type: object
+      required:
+        - data
+        - status
+        - success
+      properties:
+        data:
+          type: string
+        status:
+          type: integer
+          format: int32
+        success:
+          type: boolean
     Image:
       type: object
       required:
@@ -156,34 +244,6 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/Image'
-        status:
-          type: integer
-          format: int32
-        success:
-          type: boolean
-    BasicBooleanResponse:
-      type: object
-      required:
-        - data
-        - status
-        - success
-      properties:
-        data:
-          type: boolean
-        status:
-          type: integer
-          format: int32
-        success:
-          type: boolean
-    BasicStringResponse:
-      type: object
-      required:
-        - data
-        - status
-        - success
-      properties:
-        data:
-          type: string
         status:
           type: integer
           format: int32
