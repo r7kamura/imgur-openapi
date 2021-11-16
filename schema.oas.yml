@@ -94,7 +94,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AccountImageResponse'
+                $ref: '#/components/schemas/ImageResponse'
   /3/image/{imageHash}:
     get:
       tags:
