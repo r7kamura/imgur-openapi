@@ -53,6 +53,8 @@ paths:
     get:
       tags:
         - account
+      security:
+        - oauth2: []
       description: Get information about an account.
       operationId: getAccount
       parameters:
@@ -68,6 +70,8 @@ paths:
     get:
       tags:
         - account
+      security:
+        - oauth2: []
       description: Get images of an account.
       operationId: getAccountImages
       parameters:
@@ -83,6 +87,8 @@ paths:
     get:
       tags:
         - account
+      security:
+        - oauth2: []
       description: Get images count of an account.
       operationId: getAccountImagesCount
       parameters:
@@ -98,6 +104,8 @@ paths:
     get:
       tags:
         - account
+      security:
+        - oauth2: []
       description: Get an image of an account.
       operationId: getAccountImage
       parameters:
@@ -114,6 +122,9 @@ paths:
     post:
       tags:
         -  image
+      security:
+        - clientId: []
+        - oauth2: []
       description: Upload an image.
       operationId: uploadImage
       requestBody:
@@ -149,6 +160,9 @@ paths:
     get:
       tags:
         - image
+      security:
+        - clientId: []
+        - oauth2: []
       description: Get information about an image.
       operationId: getImage
       parameters:
@@ -163,6 +177,9 @@ paths:
     post:
       tags:
         - image
+      security:
+        - clientId: []
+        - oauth2: []
       description: Update an image.
       operationId: updateImage
       parameters:
@@ -187,6 +204,9 @@ paths:
     delete:
       tags:
         - image
+      security:
+        - clientId: []
+        - oauth2: []
       description: Delete an image.
       operationId: deleteImage
       parameters:
@@ -202,6 +222,8 @@ paths:
     post:
       tags:
         - image
+      security:
+        - oauth2: []
       description: Favorite an image.
       operationId: favoriteImage
       parameters:
@@ -214,6 +236,19 @@ paths:
               schema:
                 $ref: '#/components/schemas/BasicStringResponse'
 components:
+  securitySchemes:
+    clientId:
+      type: apiKey
+      in: header
+      name: Client-ID
+    oauth2:
+      type: oauth2
+      description: This API uses OAuth 2 with the implicit grant flow. [More info](https://api.example.com/docs/auth)
+      flows:
+        implicit:
+          authorizationUrl: https://api.imgur.com/oauth2/authorize
+          refreshUrl: https://api.imgur.com/oauth/token
+          scopes: {}
   parameters:
     imageHash:
       name: imageHash
