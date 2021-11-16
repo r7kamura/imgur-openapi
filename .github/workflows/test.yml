@@ -14,9 +14,12 @@ jobs:
       - uses: stoplightio/spectral-action@v0.8.1
         with:
           file_glob: schema.yml
+      - run: echo ::add-matcher::.github/matchers.json
       - uses: mhiew/redoc-lint-github-action@v2
         with:
           args: >-
             schema.oas.yml
             --format stylish
             --skip-rule operation-4xx-response
+        env:
+          NO_COLOR: '1'
