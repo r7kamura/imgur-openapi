@@ -138,11 +138,8 @@ paths:
                 description:
                   type: string
                 image:
-                  oneOf:
-                    - type: string
-                      format: base64
-                    - type: string
-                      format: binary
+                  type: string
+                  format: base64
                 name:
                   type: string
                 title:
