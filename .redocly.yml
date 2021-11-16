@@ -1,2 +1,6 @@
 apiDefinitions:
   imgur: schema.oas.yml
+
+lint:
+  rules:
+    operation-4xx-response: off
