@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- Add security field to each endpoint.
+
 ## 0.2.0
 
 ### Added
