@@ -15,7 +15,7 @@
 
 ## 0.1.1
 
-### Changed
+### Fixed
 
 - Only allow 1 value as grant_type: refresh_token.
 
