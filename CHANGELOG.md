@@ -5,6 +5,7 @@
 ### Added
 
 - Add a new endpoint: get_account_image.
+- Add a new endpoint: get_account_images_count.
 
 ### Fixed
 

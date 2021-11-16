@@ -79,6 +79,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AccountImagesResponse'
+  /3/account/{userName}/images/count:
+    get:
+      tags:
+        - account
+      description: Get images count of an account.
+      operationId: getAccountImagesCount
+      parameters:
+        - $ref: '#/components/parameters/userName'
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicInt32Response'
   /3/account/{userName}/images/{imageHash}:
     get:
       tags:
@@ -256,6 +271,21 @@ components:
       properties:
         data:
           type: boolean
+        status:
+          type: integer
+          format: int32
+        success:
+          type: boolean
+    BasicInt32Response:
+      type: object
+      required:
+        - data
+        - status
+        - success
+      properties:
+        data:
+          type: integer
+          format: int32
         status:
           type: integer
           format: int32
