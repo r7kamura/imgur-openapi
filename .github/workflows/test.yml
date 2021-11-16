@@ -17,5 +17,6 @@ jobs:
       - uses: mhiew/redoc-lint-github-action@v2
         with:
           args: >-
-            --skip-rule operation-4xx-response
             schema.oas.yml
+            --format stylish
+            --skip-rule operation-4xx-response
