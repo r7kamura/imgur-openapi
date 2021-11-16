@@ -19,7 +19,7 @@ paths:
     post:
       tags:
         - auth
-      description: Generate a new access token from given refresh token.
+      summary: Generate a new access token from given refresh token.
       operationId: generate_access_token
       requestBody:
         content:
@@ -55,7 +55,7 @@ paths:
         - account
       security:
         - oauth2: []
-      description: Get information about an account.
+      summary: Get information about an account.
       operationId: getAccount
       parameters:
         - $ref: '#/components/parameters/userName'
@@ -72,7 +72,7 @@ paths:
         - account
       security:
         - oauth2: []
-      description: Get images of an account.
+      summary: Get images of an account.
       operationId: getAccountImages
       parameters:
         - $ref: '#/components/parameters/userName'
@@ -89,7 +89,7 @@ paths:
         - account
       security:
         - oauth2: []
-      description: Get images count of an account.
+      summary: Get images count of an account.
       operationId: getAccountImagesCount
       parameters:
         - $ref: '#/components/parameters/userName'
@@ -106,7 +106,7 @@ paths:
         - account
       security:
         - oauth2: []
-      description: Get an image of an account.
+      summary: Get an image of an account.
       operationId: getAccountImage
       parameters:
         - $ref: '#/components/parameters/imageHash'
@@ -125,7 +125,7 @@ paths:
       security:
         - clientId: []
         - oauth2: []
-      description: Upload an image.
+      summary: Upload an image.
       operationId: uploadImage
       requestBody:
         content:
@@ -163,7 +163,7 @@ paths:
       security:
         - clientId: []
         - oauth2: []
-      description: Get information about an image.
+      summary: Get information about an image.
       operationId: getImage
       parameters:
         - $ref: '#/components/parameters/imageHash'
@@ -180,7 +180,7 @@ paths:
       security:
         - clientId: []
         - oauth2: []
-      description: Update an image.
+      summary: Update an image.
       operationId: updateImage
       parameters:
         - $ref: '#/components/parameters/imageHash'
@@ -207,7 +207,7 @@ paths:
       security:
         - clientId: []
         - oauth2: []
-      description: Delete an image.
+      summary: Delete an image.
       operationId: deleteImage
       parameters:
         - $ref: '#/components/parameters/imageHash'
@@ -224,7 +224,7 @@ paths:
         - image
       security:
         - oauth2: []
-      description: Favorite an image.
+      summary: Favorite an image.
       operationId: favoriteImage
       parameters:
         - $ref: '#/components/parameters/imageHash'
