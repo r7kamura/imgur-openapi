@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Removed
+
+- Remove binary image support.
+
 ## 0.3.0
 
 ### Added
