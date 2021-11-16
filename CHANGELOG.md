@@ -6,13 +6,13 @@
 
 - Remove binary image support.
 
-## 0.3.0
+## 0.3.0 - 2021-11-16
 
 ### Added
 
 - Add security field to each endpoint.
 
-## 0.2.0
+## 0.2.0 - 2021-11-16
 
 ### Added
 
@@ -25,13 +25,13 @@
 
 - Fix wrong operationId: getAcconut -> getAccount.
 
-## 0.1.1
+## 0.1.1 - 2021-11-15
 
 ### Fixed
 
 - Only allow 1 value as grant_type: refresh_token.
 
-## 0.1.0
+## 0.1.0 - 2021-11-15
 
 ### Added
 
