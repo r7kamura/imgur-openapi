@@ -79,6 +79,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AccountImagesResponse'
+  /3/account/{userName}/images/{imageHash}:
+    get:
+      tags:
+        - account
+      description: Get an image of an account.
+      operationId: getAccountImage
+      parameters:
+        - $ref: '#/components/parameters/imageHash'
+        - $ref: '#/components/parameters/userName'
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountImageResponse'
   /3/image/{imageHash}:
     get:
       tags:

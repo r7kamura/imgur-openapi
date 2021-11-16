@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- Add a new endpoint: get_account_image.
+
 ### Fixed
 
 - Fix wrong operationId: getAcconut -> getAccount.
