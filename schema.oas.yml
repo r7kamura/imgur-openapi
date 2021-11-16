@@ -142,9 +142,6 @@ paths:
                   type: string
                 title:
                   type: string
-              required:
-                - description
-                - title
       responses:
         '200':
           description: Successful operation.
