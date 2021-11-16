@@ -54,7 +54,7 @@ paths:
       tags:
         - account
       description: Get information about an account.
-      operationId: getAcconut
+      operationId: getAccount
       parameters:
         - $ref: '#/components/parameters/userName'
       responses:
