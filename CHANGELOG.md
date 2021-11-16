@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Fixed
+
+- Fix wrong operationId: getAcconut -> getAccount.
+
 ## 0.1.1
 
 ### Changed
