@@ -15,3 +15,7 @@ jobs:
         with:
           file_glob: schema.yml
       - uses: mhiew/redoc-lint-github-action@v2
+        with:
+          args: >-
+            --skip-rule operation-4xx-response
+            schema.oas.yml
