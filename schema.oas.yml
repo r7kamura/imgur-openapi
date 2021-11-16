@@ -110,6 +110,41 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ImageResponse'
+  /3/image:
+    post:
+      tags:
+        -  image
+      description: Upload an image.
+      operationId: uploadImage
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                album:
+                  type: string
+                description:
+                  type: string
+                image:
+                  oneOf:
+                    - type: string
+                      format: base64
+                    - type: string
+                      format: binary
+                name:
+                  type: string
+                title:
+                  type: string
+              required:
+                - image
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageResponse'
   /3/image/{imageHash}:
     get:
       tags:
