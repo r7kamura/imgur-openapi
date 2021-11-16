@@ -7,6 +7,7 @@
 - Add a new endpoint: get_account_image.
 - Add a new endpoint: get_account_images_count.
 - Add a new endpoint: update_image.
+- Add a new endpoint: upload_image.
 
 ### Fixed
 
