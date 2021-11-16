@@ -17,6 +17,7 @@ jobs:
           args: >-
             schema.oas.yml
             --format stylish
-            --skip-rule info-license,operation-4xx-response
+            --skip-rule info-license
+            --skip-rule operation-4xx-response
         env:
           NO_COLOR: '1'
